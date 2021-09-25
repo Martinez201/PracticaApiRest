@@ -20,9 +20,9 @@ public class RestExceptionHandler {
         return notFound().build();
     }
 
-    @ExceptionHandler(value = {ClienteNotFoundException.class})
-    public ResponseEntity operationNotFound(ClienteNotFoundException ex, WebRequest request) {
-        log.debug("handling ClientNotFoundException...");
+    @ExceptionHandler(value = {OperacionNotFoundException.class})
+    public ResponseEntity operationNotFound(OperacionNotFoundException ex, WebRequest request) {
+        log.debug("handling OperacionNotFoundException...");
         return notFound().build();
     }
 
