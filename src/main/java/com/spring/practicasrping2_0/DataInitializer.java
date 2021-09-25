@@ -7,6 +7,7 @@ import com.spring.practicasrping2_0.Repository.UsuarioRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
@@ -22,6 +23,8 @@ public class DataInitializer implements CommandLineRunner {
     @Autowired
     UsuarioRepository users;
 
+    @Autowired
+    PasswordEncoder passwordEncoder;
 
     @Override
     public void run(String... args) throws Exception {
@@ -37,22 +40,23 @@ public class DataInitializer implements CommandLineRunner {
         log.debug("printing all Clients...");
         this.clientes.findAll().forEach(v -> log.debug(" Cliente :" + v.toString()));
 
-      /*  User us = new User("Marciano","González García","900600900","AV Andrés Segovia 14 3º D","pollo@hotmail.com",new Date());
-        us.setPassword(this.passwordEncoder.encode("password"));
-        us.setUsername("user");
-        us.setRoles(Arrays.asList("ROLE_USER"));
+        this.users.save(User.builder()
+                .username("user")
+                .password(this.passwordEncoder.encode("password"))
+                .roles(Arrays.asList( "ROLE_USER"))
+                .build()
+        );
 
-        users.save(us);
-
-        User us2 = new User("Clint","Eastwood","900600900","Sunnyvale CA","pollo@hotmail.com",new Date());
-
-        us2.setUsername("admin");
-        us2.setPassword(this.passwordEncoder.encode("password"));
-        us2.setRoles(Arrays.asList("ROLE_USER", "ROLE_ADMIN"));
-
-        users.save(us2);
+        this.users.save(User.builder()
+                .username("admin")
+                .password(this.passwordEncoder.encode("password"))
+                .roles(Arrays.asList("ROLE_USER", "ROLE_ADMIN"))
+                .build()
+        );
 
         log.debug("printing all users...");
-        this.users.findAll().forEach(v -> log.debug(" User :" + v.toString()));*/
+        this.users.findAll().forEach(v -> log.debug(" User :" + v.toString()));
+
     }
+
 }
