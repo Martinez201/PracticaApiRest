@@ -20,6 +20,18 @@ public class RestExceptionHandler {
         return notFound().build();
     }
 
+    @ExceptionHandler(value = {ClienteNotFoundException.class})
+    public ResponseEntity operationNotFound(ClienteNotFoundException ex, WebRequest request) {
+        log.debug("handling ClientNotFoundException...");
+        return notFound().build();
+    }
+
+    @ExceptionHandler(value = {CuentaBancariaNotFoundException.class})
+    public ResponseEntity bankAccountNotFound(CuentaBancariaNotFoundException ex, WebRequest request) {
+        log.debug("handling CuentaBancariaNotFoundException...");
+        return notFound().build();
+    }
+
  /*   @ExceptionHandler(value = {InvalidJwtAuthenticationException.class})
     public ResponseEntity invalidJwtAuthentication(InvalidJwtAuthenticationException ex, WebRequest request) {
         log.debug("handling InvalidJwtAuthenticationException...");
