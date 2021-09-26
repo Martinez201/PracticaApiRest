@@ -1,5 +1,8 @@
-package com.spring.practicasrping2_0.Exception;
+package com.spring.practicasrping2_0.handler;
 
+import com.spring.practicasrping2_0.Exception.ClienteNotFoundException;
+import com.spring.practicasrping2_0.Exception.CuentaBancariaNotFoundException;
+import com.spring.practicasrping2_0.Exception.OperacionNotFoundException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;

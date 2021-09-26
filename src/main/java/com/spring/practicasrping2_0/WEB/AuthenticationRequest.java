@@ -1,4 +1,4 @@
-package com.spring.practicasrping2_0.Form;
+package com.spring.practicasrping2_0.WEB;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

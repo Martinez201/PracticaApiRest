@@ -1,5 +1,7 @@
-package com.spring.practicasrping2_0.Jwt;
+package com.spring.practicasrping2_0.Config;
 
+import com.spring.practicasrping2_0.Jwt.JwtTokenFilter;
+import com.spring.practicasrping2_0.Jwt.JwtTokenProvider;
 import org.springframework.security.config.annotation.SecurityConfigurerAdapter;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.web.DefaultSecurityFilterChain;

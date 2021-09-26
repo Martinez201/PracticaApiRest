@@ -1,6 +1,6 @@
 package com.spring.practicasrping2_0.Controller;
 
-import com.spring.practicasrping2_0.Form.AuthenticationRequest;
+import com.spring.practicasrping2_0.WEB.AuthenticationRequest;
 import com.spring.practicasrping2_0.Jwt.JwtTokenProvider;
 import com.spring.practicasrping2_0.Repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
 
 import java.util.HashMap;
 import java.util.Map;
@@ -39,7 +40,12 @@ public class AuthController {
         try {
             String username = data.getUsername();
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username, data.getPassword()));
-            String token = jwtTokenProvider.createToken(username, this.users.findByUsername(username).orElseThrow(() -> new UsernameNotFoundException("Username " + username + "not found")).getRoles());
+            String token = jwtTokenProvider.createToken(
+                    username,
+                    this.users.findByUsername(username)
+                            .orElseThrow(() -> new UsernameNotFoundException("Username " + username + "not found"))
+                            .getRoles()
+            );
 
             Map<Object, Object> model = new HashMap<>();
             model.put("username", username);

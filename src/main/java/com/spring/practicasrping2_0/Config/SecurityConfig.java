@@ -1,6 +1,5 @@
 package com.spring.practicasrping2_0.Config;
 
-import com.spring.practicasrping2_0.Jwt.JwtConfigurer;
 import com.spring.practicasrping2_0.Jwt.JwtTokenProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;

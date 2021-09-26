@@ -2,7 +2,6 @@ package com.spring.practicasrping2_0.Jwt;
 
 import com.spring.practicasrping2_0.Exception.InvalidJwtAuthenticationException;
 import io.jsonwebtoken.*;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
